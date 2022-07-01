@@ -1,0 +1,31 @@
+﻿<Window x:Class="lastchance.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lastchance.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation = "CenterScreen"> <!-- Center Window -->
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28px">Aplikacja do zarządzania danymi pracowników w organizacji</TextBlock>
+        <Grid>
+            <!-- Bottome Menu START -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Grid ShowGridLines="True" Margin="0,350,0,0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Menu" FontSize="16" Grid.Row="0" Grid.Column="0" Click="BtnToMenu"></Button>
+            <Button Content="Employee Details" FontSize="16" Grid.Row="0" Grid.Column="1" Click="BtnToEmployeeDetails"></Button>
+            <Button Content="Add Employee" FontSize="16" Grid.Row="0" Grid.Column="2" Click="BtnToAddEmployee"></Button>
+        </Grid> <!-- Bottome Menu END -->       
+    </Grid>
+</Window>

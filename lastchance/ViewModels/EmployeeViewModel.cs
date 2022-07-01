@@ -47,25 +47,22 @@ namespace lastchance.ViewModels
         public EmployeeDetail SelectedEmployee
         {
             get { return _selectedEmployee; }
-            set 
-            { _selectedEmployee = value;
-                OnPropertyChanged(nameof(LstEmployeeDetail));
+            set
+            {
+                _selectedEmployee = value;
+                OnPropertyChanged(nameof(SelectedEmployee));
             }
         }
-
-        private EmployeeDetail employeeDetail;
-
-        public EmployeeDetail _EmployeeDetail
+        private EmployeeDetail employeeDetail = new EmployeeDetail();
+        public EmployeeDetail EmployeeDetailAdd
         {
             get { return employeeDetail; }
             set
             {
                 employeeDetail = value;
-                OnPropertyChanged(nameof(_EmployeeDetail));
+                OnPropertyChanged(nameof(EmployeeDetailAdd));
             }
         }
-
-
 
         EmployeeEntities employeeEntities;
 
@@ -76,9 +73,16 @@ namespace lastchance.ViewModels
             DeleteCommand = new Command((s) => true, Delete);
             UpdateCommand = new Command((s) => true, Update);
             UpdateEmployeeCommand = new Command((s) => true, UpdateEmployee);
-
+            AddEmployeeCommand = new Command((s) => true, AddEmployee);
         }
 
+        private void AddEmployee(object obj)
+        {
+            EmployeeDetailAdd.ID ="ID "+ employeeEntities.EmployeeDetails.Count();
+            employeeEntities.EmployeeDetails.Add(EmployeeDetailAdd);
+            employeeEntities.SaveChanges();
+            EmployeeDetailAdd = new EmployeeDetail();
+        }
         private void Delete(object obj)
         {
             var emp = obj as EmployeeDetail;
@@ -93,6 +97,7 @@ namespace lastchance.ViewModels
         private void UpdateEmployee(object obj)
         {
             employeeEntities.SaveChanges();
+            SelectedEmployee = new EmployeeDetail();
         }
 
         private void LoadEmployee() //Read details
@@ -103,8 +108,9 @@ namespace lastchance.ViewModels
         public ICommand DeleteCommand { get; set; }
         public ICommand UpdateCommand { get; set; }
         public ICommand UpdateEmployeeCommand { get; set; }
-
+        public ICommand AddEmployeeCommand { get; set; }
     }
+
     class Command : ICommand
     {
         public Command(Func<Object, bool> methodCanExecute, Action<object> methodExecute)

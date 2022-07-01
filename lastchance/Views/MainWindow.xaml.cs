@@ -1,5 +1,4 @@
-﻿using lastchance.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,20 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-
 namespace lastchance.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy Window1.xaml
+    /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
-    public partial class EmplyeeDetails : Window
+    public partial class MainWindow : Window
     {
-        public EmplyeeDetails()
+        public MainWindow()
         {
             InitializeComponent();
-
-            DataContext = new EmployeeViewModel(); //Take data from EmployeeViewModel() and put into DataContext
         }
+
         //////////////////////////////////////////////////////////////////
         /* Bottom Menu Commands */
         private void BtnToEmployeeDetails(object sender, RoutedEventArgs e)

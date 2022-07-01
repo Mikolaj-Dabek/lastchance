@@ -1,0 +1,69 @@
+﻿<Window x:Class="lastchance.Views.AddEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lastchance.Views" xmlns:viewmodels="clr-namespace:lastchance.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:EmployeeViewModel}"
+        mc:Ignorable="d"
+        Title="AddEmployee" Height="450" Width="800"
+        WindowStartupLocation = "CenterScreen">
+    <Grid>
+        <Grid Grid.Row="1"> <!-- Add Employee Section START -->
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition>
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="0,0,0,0">
+                <StackPanel Margin="5">
+                    <Label Content="Add new Employee" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26"/>
+
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition>
+                            </ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="Name" FontSize="18px" Margin="0,10,0,0"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Margin="100,10,0,0" Text="{Binding EmployeeDetailAdd.Name}" Height="35px"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Content="Age" FontSize="18px" Margin="0,10,0,0"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="100,10,0,0" Text="{Binding EmployeeDetailAdd.Age}" Height="35px"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Content="Gender" FontSize="18px" Margin="0,10,0,0"/>
+                        <TextBox Grid.Row="2" Grid.Column="1"  Margin="100,10,0,0" Text="{Binding EmployeeDetailAdd.Gender}" Height="35px"/>
+
+                        <Label Grid.Row="3" Grid.Column="0" Content="Address" FontSize="18px" Margin="0,10,0,0"/>
+                        <TextBox Grid.Row="3" Margin="100,10,0,0" Text="{Binding EmployeeDetailAdd.Address}" Height="35px"/>
+
+                        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Add" Margin="0,20,0,0" HorizontalAlignment="Center" Width="300" Height="35"
+                                Command="{Binding AddEmployeeCommand}"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid> <!-- Add Employee Section END -->
+
+
+        <Grid ShowGridLines="True" Margin="0,350,0,0"> <!-- Bottom Menu START -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+           </Grid.ColumnDefinitions>
+
+            <Button Content="Menu" FontSize="16" Grid.Row="0" Grid.Column="0" Click="BtnToMenu"></Button>
+            <Button Content="Employee Details" FontSize="16" Grid.Row="0" Grid.Column="1" Click="BtnToEmployeeDetails"></Button>
+            <Button Content="Add Employee" FontSize="16" Grid.Row="0" Grid.Column="2" Click="BtnToAddEmployee"></Button>
+
+        </Grid>  <!-- Bottom Menu END -->
+    </Grid>
+</Window>
